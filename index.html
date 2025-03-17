@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thiệp Cưới - Utku & Love</title>
+    <title>Thiệp Cưới - Linh Bảo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
@@ -15,102 +15,277 @@
             background-color: #f9f5f0;
             color: #6b2e2e;
             text-align: center;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease; /* Hiệu ứng chuyển màu nền */
+        }
+
+        body:hover {
+            background-color: #f0e6ef; /* Màu nền khi hover */
         }
         .container {
-            width: 90%;
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
             background: white;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            margin-top: 30px;
+            border-radius: 10px;
+            transition: box-shadow 0.3s ease; /* Hiệu ứng đổ bóng */
+        }
+
+        .container:hover {
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Đổ bóng đậm hơn khi hover */
         }
         h1 {
             font-family: 'Great Vibes', cursive;
             font-size: 3rem;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Tạo bóng cho tiêu đề */
         }
         .date {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: bold;
         }
         .image-box {
             width: 100%;
-            border-radius: 10px;
             overflow: hidden;
             margin: 20px 0;
+            border-radius: 10px;
         }
         .image-box img {
             width: 100%;
             display: block;
+            transition: transform 0.3s ease;
         }
-        .schedule {
-            margin-top: 20px;
+        .image-box img:hover {
+            transform: scale(1.1);
         }
         .countdown {
             font-size: 1.5rem;
             font-weight: bold;
             margin: 20px 0;
         }
-        .rsvp {
-            background: #f9e0e0;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-        input, select, textarea, button {
-            width: 100%;
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
+        .countdown span {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 5px;
             background: #d6336c;
             color: white;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            animation: pulse 1.5s infinite alternate; /* Tạo hiệu ứng nhấp nháy */
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+        .info-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: #fff5f5;
+            border-radius: 10px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.3s ease; /* Hiệu ứng di chuyển khi hover */
+        }
+
+        .info-section:hover {
+            transform: translateY(-5px); /* Di chuyển lên trên khi hover */
+        }
+        .info-section img {
+            width: 40%;
+            border-radius: 10px;
+            object-fit: cover;
+            height: 200px;
+        }
+        .info-section .text {
+            width: 50%;
+            padding: 20px;
+            text-align: left;
+        }
+        .reverse {
+            flex-direction: row-reverse;
+        }
+        /* Gộp dress code và địa điểm tổ chức vào info-section */
+        .dress-code .location {
+            margin-top: 30px;
+        }
+        .dress-code, .location {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff5f5;
+            border-radius: 10px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.3s ease; /* Hiệu ứng di chuyển khi hover */
+        }
+
+        .dress-code:hover, .location:hover {
+            transform: translateY(-5px); /* Di chuyển lên trên khi hover */
+        }
+
+        .dress-code h2, .location h2 {
+            font-size: 1.8rem;
+            color: #d6336c; /* Màu sắc nổi bật */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Tạo bóng cho tiêu đề */
+        }
+
+        .dress-code p, .location p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .dress-code img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Tạo bóng cho ảnh */
+            transition: transform 0.3s ease; /* Hiệu ứng phóng to ảnh */
+        }
+
+        .dress-code img:hover {
+            transform: scale(1.05); /* Phóng to ảnh khi hover */
+        }
+        .location iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 10px;
+        }
+        .rsvp {
+            margin-top: 30px;
+        }
+        .rsvp h2 {
+            font-size: 1.8rem;
+        }
+        .rsvp form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .rsvp input, .rsvp select, .rsvp textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
             font-size: 1rem;
+        }
+        .rsvp button {
+            padding: 10px 20px;
+            background-color: #d6336c;
+            color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Hiệu ứng chuyển màu và di chuyển */
         }
-        button:hover {
-            background: #b32456;
+
+        .rsvp button:hover {
+            background-color: #b12a5b;
+            transform: translateY(-2px); /* Di chuyển lên trên khi hover */
         }
+        .color-palette {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.color-palette div {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    border-radius: 50%;
+}
+
+.color-1 { background-color: #d6336c; }
+.color-2 { background-color: #6b2e2e; }
+.color-3 { background-color: #deac6f; }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Utku & Love</h1>
+        <h1>Linh Bảo</h1>
         <p class="date">Hôn lễ ngày 11/12/2025</p>
-        
+
         <div class="image-box">
-            <img src="https://source.unsplash.com/600x400/?couple,wedding" alt="Couple">
+            <img src="couple.jpg" alt="Couple">
         </div>
-        
+
         <p>Chúng tôi hân hạnh mời bạn đến chung vui ngày trọng đại!</p>
-        
-        <div class="countdown" id="countdown">⏳ Đang tải...</div>
-        
-        <div class="schedule">
-            <img src="lichtrinh.jpg" alt="Lịch trình" width="100%" style="border-radius: 10px;">
+
+        <div class="countdown" id="countdown">
+            <span id="days">00</span> ngày
+            <span id="hours">00</span> giờ
+            <span id="minutes">00</span> phút
+            <span id="seconds">00</span> giây
         </div>
-        
+
+        <div class="info-section">
+            <img src="2.jpg" alt="Love Story">
+            <div class="text">
+                <h2>Câu chuyện tình yêu</h2>
+                <p>Một hành trình đẹp đẽ bắt đầu từ những khoảnh khắc đáng nhớ...</p>
+            </div>
+        </div>
+
+        <div class="info-section reverse">
+            <img src="1.jpg" alt="Wedding Day">
+            <div class="text">
+                <h2>Ngày trọng đại</h2>
+                <p>Hãy cùng chúng tôi tận hưởng ngày hạnh phúc nhất cuộc đời!</p>
+            </div>
+        </div>
         <div class="dress-code">
             <h2>Dress Code</h2>
             <p>Hãy chọn trang phục có gam màu nhẹ nhàng để phù hợp với chủ đề cưới.</p>
-            <img src="tone.jpg" alt="Dress Code">
-        </div>
-        
+            <div class="dress-code">
+               
+                <!-- Thêm bảng màu -->
+                <div class="color-palette">
+                    <div class="color-1"></div>
+                    <div class="color-2"></div>
+                    <div class="color-3"></div>
+                </div>
+            </div>        </div>
+        <div class="location">
+            <h2>Địa điểm tổ chức</h2>
+            <p>21Đ Lê Đức Thọ, Khóm 3, Phường Tân Xuyên, TP Cà Mau</p>
+            <!-- Chèn bản đồ Google Maps -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d246.15201152085075!2d105.16726167148741!3d9.205582484202134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2sus!4v1742203084615!5m2!1svi!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </div>
         <div class="rsvp">
             <h2>Xác nhận tham gia</h2>
             <form id="rsvpForm">
-                <input type="text" id="name" placeholder="Tên của bạn" required>
+                <label for="name">Tên của bạn:</label>
+                <input type="text" id="name" placeholder="Nhập tên của bạn" required>
+            
+                <label for="attendance">Sự tham gia của bạn:</label>
                 <select id="attendance" required>
                     <option value="yes">Có, tôi sẽ đến! 🎊</option>
                     <option value="no">Tiếc quá, tôi không thể tham gia 😢</option>
                 </select>
-                <textarea id="message" rows="3" placeholder="Lời nhắn đến cô dâu & chú rể"></textarea>
+            
+                <label for="message">Lời nhắn:</label>
+                <textarea id="message" rows="5" placeholder="Viết lời nhắn đến cô dâu & chú rể"></textarea>
+            
                 <button type="submit">Xác nhận</button>
             </form>
+            
+          
+            
+            
         </div>
     </div>
 
@@ -119,19 +294,19 @@
             const weddingDate = new Date("December 11, 2025 00:00:00").getTime();
             const now = new Date().getTime();
             const distance = weddingDate - now;
+
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("countdown").innerHTML = `Còn ${days} ngày nữa! 🎉`;
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
         }
         setInterval(updateCountdown, 1000);
         updateCountdown();
-
-        document.getElementById("rsvpForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const name = document.getElementById("name").value;
-            const attendance = document.getElementById("attendance").value;
-            const message = document.getElementById("message").value;
-            alert(`Cảm ơn bạn, ${name}! \nTham gia: ${attendance === "yes" ? "Có" : "Không"} \nLời nhắn: ${message}`);
-        });
     </script>
 </body>
 </html>
