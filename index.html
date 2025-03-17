@@ -3,24 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Wedding</title>
+    <title>Our Wedding - Utku & Love</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f8f9fa;
-            padding: 50px;
+            padding: 20px;
         }
         h1 {
             color: #ff4081;
         }
         p {
             color: #333;
+            font-size: 18px;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 20px 0;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 10px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e91e63;
         }
     </style>
 </head>
 <body>
-    <h1>Chào mừng đến với đám cưới của chúng tôi!</h1>
-    <p>Trang web này đang chạy trên GitHub Pages 🎉</p>
+
+    <h1>Chào mừng đến với đám cưới của chúng tôi! 💍</h1>
+    <p>Ngày trọng đại sẽ diễn ra vào <b>11/12/2025</b>. Hãy cùng đếm ngược!</p>
+    
+    <div class="countdown" id="countdown">⏳ Đang tải...</div>
+
+    <div class="gallery">
+        <img src="https://source.unsplash.com/200x200/?wedding,couple" alt="Ảnh cưới 1">
+        <img src="https://source.unsplash.com/200x200/?love,romance" alt="Ảnh cưới 2">
+        <img src="https://source.unsplash.com/200x200/?bride,groom" alt="Ảnh cưới 3">
+    </div>
+
+    <h2>Bạn có tham gia cùng chúng tôi không? 🎉</h2>
+    <div class="form-container">
+        <form id="rsvpForm">
+            <label for="name">Tên của bạn:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="attendance">Bạn có tham gia không?</label>
+            <select id="attendance" name="attendance" required>
+                <option value="yes">Có, tôi sẽ đến! 🎊</option>
+                <option value="no">Tiếc quá, tôi không thể tham gia 😢</option>
+            </select>
+
+            <label for="message">Lời nhắn đến cô dâu & chú rể:</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <button type="submit">Xác nhận</button>
+        </form>
+    </div>
+
+    <script>
+        // Đếm ngược đến ngày cưới
+        function updateCountdown() {
+            const weddingDate = new Date("December 11, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `Còn ${days} ngày ${hours} giờ ${minutes} phút ${seconds} giây! 🎉`;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "🎊 Hôm nay là ngày cưới rồi! 🎊";
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Xử lý form xác nhận
+        document.getElementById("rsvpForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const attendance = document.getElementById("attendance").value;
+            const message = document.getElementById("message").value;
+
+            alert(`Cảm ơn bạn, ${name}! \nTham gia: ${attendance === "yes" ? "Có" : "Không"} \nLời nhắn: ${message}`);
+        });
+    </script>
+
 </body>
 </html>
